@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DRU Driver Application Form</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input, select, textarea { width: 100%; margin-bottom: 10px; padding: 6px; }
+    .employment-card { margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>DRU Driver Application Form</h1>
+  <form id="driverForm">
+    <label>Full Name: <input name="fullName" required></label>
+    <label>Date of Birth: <input type="date" name="dob" required></label>
+    <label>Email: <input type="email" name="email" required></label>
+    <label>Phone: <input name="phone" required></label>
+    <label>Address: <textarea name="address" required></textarea></label>
+    <label>License Class: <input name="licenseClass" required></label>
+    <label>License Years: <input name="licenseYears" required></label>
+    <label>Position Applying For: <input name="position" required></label>
+    <label>Can Lift 50lbs? <select name="lift"><option>Yes</option><option>No</option></select></label>
+    <label>Willing to Work Across Border? <select name="border"><option>Yes</option><option>No</option></select></label>
+    <label>FAST Card? <select name="fast"><option>Yes</option><option>No</option></select></label>
+    <label>Criminal Record? <select name="criminal"><option>No</option><option>Yes</option></select></label>
+    <h3>Employment History</h3>
+    <div id="employmentBlock"></div>
+    <button type="button" id="addJob">+ Add Employment</button><br><br>
+    <label>Authorization Name: <input name="authName" required></label>
+    <label>Authorization Date: <input type="date" name="authDate" required></label>
+
+    <h3>Signature</h3>
+    <canvas id="signature-pad" width="300" height="100" style="border:1px solid #000;"></canvas><br>
+    <button type="button" onclick="clearSignature()">Clear Signature</button>
+    <input type="hidden" name="signature" id="signature">
+
+    <label><input type="checkbox" required> I agree to the Terms and Conditions</label><br>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="status"></p>
+
+  <script src="form.js"></script>
+</body>
+</html>
